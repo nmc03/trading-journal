@@ -1,0 +1,200 @@
+:root {
+  color-scheme: dark;
+  background: #07080f;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #07080f;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #00c896;
+  outline-offset: 2px;
+}
+
+.login-shell {
+  padding: 24px 16px;
+}
+
+.login-card {
+  max-width: 100%;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.app-shell {
+  width: 100%;
+}
+
+.journal-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  gap: 16px;
+  background: rgba(7, 8, 15, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.journal-brand {
+  flex: 0 0 auto;
+}
+
+.journal-nav {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-button,
+.fx-button,
+.icon-button {
+  transition: border-color 120ms ease, color 120ms ease, background-color 120ms ease, transform 120ms ease;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  white-space: nowrap;
+}
+
+.nav-button:hover,
+.fx-button:hover,
+.icon-button:hover {
+  border-color: #30354c !important;
+  color: #c3cad7 !important;
+}
+
+.nav-button:active,
+.fx-button:active,
+.icon-button:active {
+  transform: translateY(1px);
+}
+
+.icon-button--danger:hover {
+  border-color: rgba(255, 77, 109, 0.45) !important;
+  color: #ff708b !important;
+}
+
+.journal-content {
+  width: 100%;
+}
+
+.trade-card {
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.trade-card:hover {
+  border-color: #252b40 !important;
+  background: #0f111e !important;
+}
+
+.modal-backdrop {
+  padding: 16px;
+}
+
+.modal-card {
+  max-width: 100%;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 720px) {
+  .journal-header {
+    align-items: flex-start !important;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px !important;
+  }
+
+  .journal-nav {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .journal-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .journal-content {
+    padding: 16px 12px 32px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-row--two {
+    flex-direction: column;
+  }
+
+  .form-grid--three,
+  .form-grid--two {
+    grid-template-columns: 1fr !important;
+  }
+
+  .trade-card__main {
+    gap: 8px;
+  }
+
+  .trade-card__aside {
+    min-width: 78px !important;
+    margin-left: 6px !important;
+  }
+
+  .trade-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .metrics-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .fx-button {
+    flex: 0 0 auto;
+  }
+
+  .nav-button {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+  }
+}

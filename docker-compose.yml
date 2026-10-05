@@ -1,0 +1,30 @@
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    env_file: ./backend/.env
+    volumes:
+      - ./data:/app/data
+    networks:
+      - trading-net
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+    networks:
+      - trading-net
+
+networks:
+  trading-net:
+
