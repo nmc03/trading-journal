@@ -1,0 +1,16 @@
+.env
+*.env.local
+.DS_Store
+Thumbs.db
+node_modules/
+frontend/dist/
+coverage/
+__pycache__/
+*.pyc
+data/
+backend/data/
+*.sqlite
+*.sqlite3
+*.db
+_old/
+*.zip
