@@ -4,3 +4,4 @@ Dockerfile text eol=lf
 PUBLISHING.md export-ignore
 .claude export-ignore
 design/before export-ignore
+.github/dependabot.yml export-ignore
