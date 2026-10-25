@@ -5,3 +5,7 @@ PUBLISHING.md export-ignore
 .claude export-ignore
 design/before export-ignore
 .github/dependabot.yml export-ignore
+.github/workflows/publish-public.yml export-ignore
+.github/workflows/automerge.yml export-ignore
+.github/workflows/privacy-guard.yml export-ignore
+scripts/privacy-scan.sh export-ignore

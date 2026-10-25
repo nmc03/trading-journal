@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- Docker image: the server could not read its own files when the image was built with a restrictive `umask` (for example 077): the unprivileged `node` user got `permission denied` on `package.json`. File modes are now set explicitly in the `Dockerfile`.
+
 ### Changed
 
 - Documentation rewritten for clarity and accuracy: README (in five languages), CONTRIBUTING, SECURITY and PRIVACY. The Node.js quick start now passes `DATA_DIR` and `STATIC_DIR` on the command line so the same `backend/.env` also works with Docker.

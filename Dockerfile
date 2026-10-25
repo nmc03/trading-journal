@@ -17,7 +17,12 @@ RUN npm ci --omit=dev \
 COPY backend/server.js backend/i18n.js ./
 COPY --from=web /web/dist ./public
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh && mkdir -p /app/data
+# COPY keeps the file modes of the build context. With a restrictive umask (for example 077 on a hardened
+# server) the files would be unreadable for the unprivileged "node" user, so set the modes explicitly.
+RUN chmod 0644 package.json package-lock.json server.js i18n.js \
+    && chmod -R a+rX public \
+    && chmod 0755 /usr/local/bin/docker-entrypoint.sh \
+    && mkdir -p /app/data
 
 EXPOSE 3001
 ENTRYPOINT ["docker-entrypoint.sh"]
