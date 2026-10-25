@@ -6,13 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Fixed
+## [2.0.1] - 2026-10-25
 
-- Docker image: the server could not read its own files when the image was built with a restrictive `umask` (for example 077): the unprivileged `node` user got `permission denied` on `package.json`. File modes are now set explicitly in the `Dockerfile`.
+### Added
+
+- The CI now runs a Docker smoke test (`scripts/docker-smoke.sh`): it builds the image, starts it with throwaway credentials and checks the UI, localised API errors, login, persistence across a restart and that the server does not run as root.
+- A GitHub release is created automatically from this changelog when a version tag (`vX.Y.Z`) is pushed.
 
 ### Changed
 
 - Documentation rewritten for clarity and accuracy: README (in five languages), CONTRIBUTING, SECURITY and PRIVACY. The Node.js quick start now passes `DATA_DIR` and `STATIC_DIR` on the command line so the same `backend/.env` also works with Docker.
+
+### Fixed
+
+- Docker image: the server could not read its own files when the image was built with a restrictive `umask` (for example 077): the unprivileged `node` user got `permission denied` on `package.json`. File modes are now set explicitly in the `Dockerfile`.
+
+### Security
+
+- Dependency locks refreshed to patch a vulnerable IPv6 address parser in a transitive dependency.
 
 ## [2.0.0] - 2026-10-21
 
@@ -76,5 +87,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Unit tests for the calculation module (`frontend/src/lib/calc.js`).
 - Extended backend tests for authentication, input validation and error paths.
 
-[Unreleased]: https://github.com/nmc03/trading-journal/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/nmc03/trading-journal/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/nmc03/trading-journal/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/nmc03/trading-journal/releases/tag/v2.0.0
