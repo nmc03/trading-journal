@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-11-08
+
+### Added
+
+- Prebuilt multi-architecture Docker image (`linux/amd64` and `linux/arm64`) published to `ghcr.io/nmc03/trading-journal` with the tags `X.Y.Z`, `X.Y` and `latest` whenever a version tag is pushed.
+
+### Changed
+
+- `express-rate-limit` updated to 8.7.2.
+- Documentation (all languages) explains how to run the prebuilt image.
+
 ## [2.0.1] - 2026-10-25
 
 ### Added
@@ -87,6 +98,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Unit tests for the calculation module (`frontend/src/lib/calc.js`).
 - Extended backend tests for authentication, input validation and error paths.
 
-[Unreleased]: https://github.com/nmc03/trading-journal/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/nmc03/trading-journal/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/nmc03/trading-journal/compare/v2.0.1...v2.1.0
 [2.0.1]: https://github.com/nmc03/trading-journal/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/nmc03/trading-journal/releases/tag/v2.0.0

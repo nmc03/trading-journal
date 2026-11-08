@@ -111,6 +111,8 @@ docker compose up -d --build
 
 Abra <http://localhost:8080>. Para usar outra porta do host no PowerShell, execute `$env:HTTP_PORT=8088; docker compose up -d`. No bash, execute `HTTP_PORT=8088 docker compose up -d`.
 
+Uma imagem já construída para `linux/amd64` e `linux/arm64` está publicada no GitHub Container Registry. Para usá-la em vez de construir, execute `docker run -d --name trading-journal -p 8080:3001 --env-file backend/.env -v "$PWD/data:/app/data" ghcr.io/nmc03/trading-journal:latest`. Fixe uma versão como `:2.1.0` para implantações reproduzíveis.
+
 > **Aviso de segurança.** A aplicação não tem HTTPS incorporado. Use-a em localhost, na sua rede local ou numa VPN. O Docker publica a porta em todas as interfaces. Se a aplicação for acessível a partir de uma rede não fiável, coloque à frente um proxy inverso HTTPS e defina `TRUST_PROXY_HOPS=1`.
 
 ## Configuração
